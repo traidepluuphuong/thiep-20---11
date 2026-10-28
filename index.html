@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thiệp điện tử 20/11 — Tri ân người lái đò</title>
+<style>
+:root{--pink:#f5b9cf;--deep:#a74470;--pale:#fff5f8;--white:#fff;--ink:#563744;--line:#f0d4df}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(135deg,#fff8fb,#fde8f0);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink)}
+button,input,textarea,select{font:inherit}button{cursor:pointer;border:0;border-radius:12px;padding:10px 14px;background:var(--deep);color:white;font-weight:650}button.secondary{background:white;color:var(--deep);border:1px solid var(--line)}button.danger{background:#fff0f2;color:#a33a53;border:1px solid #f4c7d1}
+header{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 22px;background:#ffffffd9;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5;backdrop-filter:blur(12px)}
+.brand{font-weight:850;color:var(--deep);letter-spacing:.2px}.actions{display:flex;gap:8px;flex-wrap:wrap}
+main{max-width:1440px;margin:0 auto;padding:20px;display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:18px;align-items:start}
+.stage{min-height:calc(100vh - 115px);border:1px solid #f1d6e0;border-radius:24px;background:radial-gradient(ellipse at top,#fff 0%,#fff7fa 55%,#ffeaf2 100%);overflow:hidden;position:relative;padding:24px;display:grid;grid-template-columns:minmax(210px,.8fr) minmax(360px,1.2fr);gap:10px;align-items:center;box-shadow:0 12px 35px #9e4a6d12}
+.stage:before,.stage:after{content:"♡";position:absolute;color:#f4bdd0;opacity:.55;font-size:72px;pointer-events:none}.stage:before{top:10px;left:18px}.stage:after{right:20px;bottom:8px}
+.intro{z-index:1;padding:clamp(8px,2vw,28px)}.eyebrow{color:#b65d83;font-weight:800;letter-spacing:2px;text-transform:uppercase;font-size:12px}.intro h1{font-family:Georgia,serif;color:#a74470;font-size:clamp(30px,4vw,56px);line-height:1.04;margin:12px 0}.intro p{line-height:1.75;font-size:clamp(14px,1.2vw,17px);white-space:pre-wrap}.date{display:inline-block;background:white;border:1px solid var(--line);padding:8px 13px;border-radius:99px;color:#a74470;font-weight:750;margin-top:8px}
+.heart-area{min-height:470px;display:flex;align-items:center;justify-content:center;position:relative;z-index:1}.heart{width:min(100%,570px);height:470px;position:relative}.teacher{position:absolute;width:clamp(82px,11vw,125px);height:clamp(94px,12vw,140px);border:4px solid white;box-shadow:0 7px 20px #9c4b6a24;border-radius:18px;background:#f7d9e4;overflow:hidden;transform:translate(-50%,-50%) rotate(var(--rot,0deg));transition:transform .2s,box-shadow .2s;cursor:pointer;padding:0;color:#773d56}.teacher:hover{transform:translate(-50%,-50%) rotate(0) scale(1.07);box-shadow:0 12px 26px #9c4b6a40;z-index:4}.teacher img{width:100%;height:100%;object-fit:cover;display:block}.teacher .placeholder{height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:5px;font-size:13px;font-weight:700;padding:8px;text-align:center}.teacher .placeholder b{font-size:28px}.teacher .name{position:absolute;bottom:0;left:0;right:0;padding:5px 3px;background:#fffE;color:#8c3d61;font-size:11px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.empty-note{position:absolute;bottom:3px;left:0;right:0;text-align:center;font-size:12px;color:#a86a82}
+.panel{background:#fff;border:1px solid var(--line);border-radius:20px;padding:17px;box-shadow:0 8px 24px #9e4a6d0b}.panel h2{font-size:18px;color:var(--deep);margin:0 0 8px}.hint{font-size:12px;color:#947482;line-height:1.5;margin:0 0 14px}.field{display:flex;flex-direction:column;gap:6px;margin:12px 0}.field label{font-size:12px;font-weight:800;color:#805267}.field input,.field textarea,.field select{width:100%;border:1px solid var(--line);border-radius:10px;padding:10px 11px;background:#fffafd;color:var(--ink);outline-color:#d987a9}.field textarea{min-height:82px;resize:vertical}.field input[type=file]{padding:8px;font-size:12px}.split{display:grid;grid-template-columns:1fr 1fr;gap:9px}.teacher-list{display:flex;flex-direction:column;gap:8px;margin:12px 0}.person{border:1px solid var(--line);border-radius:12px;padding:10px;display:flex;align-items:center;gap:9px}.person.active{border-color:#d87da2;background:#fff5f9}.thumb{width:42px;height:42px;border-radius:10px;background:#f8dce6;object-fit:cover;flex-shrink:0}.person-info{min-width:0;flex:1}.person-info strong{display:block;font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.person-info small{display:block;font-size:11px;color:#a27b8d}.person button{padding:6px 8px;font-size:12px}.panel-actions{display:flex;gap:8px;flex-wrap:wrap}.panel-actions button{flex:1}.status{font-size:12px;color:#9a617b;min-height:18px;margin-top:8px}.footer-note{text-align:center;font-size:11px;color:#a27d8c;padding:8px}
+.modal{position:fixed;inset:0;background:#47233377;display:none;align-items:center;justify-content:center;padding:18px;z-index:10}.modal.show{display:flex}.card{background:linear-gradient(145deg,#fff,#fff1f6);border:1px solid #f4c9d8;border-radius:24px;max-width:600px;width:100%;padding:28px;position:relative;text-align:center;box-shadow:0 25px 80px #48223545}.card .close{position:absolute;right:14px;top:14px}.card img{width:110px;height:110px;border-radius:50%;object-fit:cover;border:5px solid white;box-shadow:0 5px 18px #9e4a6d25}.card h2{font-family:Georgia,serif;color:#a74470;font-size:30px;margin:12px 0}.card p{white-space:pre-wrap;line-height:1.8}.sparkle{color:#d77b9f;font-size:22px}
+@media(max-width:1000px){main{grid-template-columns:1fr}.stage{min-height:650px}.panel{order:2}.heart-area{min-height:410px}.heart{height:400px}.teacher{width:clamp(78px,13vw,112px);height:clamp(90px,15vw,124px)}}
+@media(max-width:650px){header{padding:12px;align-items:flex-start;flex-direction:column}.actions{width:100%}.actions button{flex:1;font-size:12px;padding:9px 8px}main{padding:10px;gap:12px}.stage{grid-template-columns:1fr;min-height:auto;padding:22px 12px 30px;gap:0}.intro{text-align:center;padding:22px 10px 4px}.intro h1{font-size:38px}.heart-area{min-height:360px}.heart{height:350px;width:100%}.teacher{width:clamp(68px,20vw,94px);height:clamp(78px,23vw,108px);border-width:3px}.teacher .name{font-size:9px}.empty-note{font-size:10px}.panel{padding:14px}.card{padding:24px 18px}.card h2{font-size:25px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">♡ THIỆP ĐIỆN TỬ 20/11</div>
+  <div class="actions">
+    <button class="secondary" id="previewBtn">Xem thiệp</button>
+    <button class="secondary" id="exportBtn">Xuất bản sao</button>
+    <button id="saveBtn">Lưu thay đổi</button>
+  </div>
+</header>
+<main>
+<section class="stage" id="stage">
+  <div class="intro">
+    <div class="eyebrow">Ngày Nhà giáo Việt Nam</div>
+    <h1 id="viewTitle">Tri ân người lái đò</h1>
+    <p id="viewMessage">Cảm ơn thầy cô đã tận tâm dìu dắt, truyền cảm hứng và chắp cánh cho những ước mơ. Kính chúc thầy cô luôn mạnh khỏe, hạnh phúc và giữ mãi ngọn lửa yêu nghề!</p>
+    <div class="date" id="viewDate">20 · 11 · 2026</div>
+  </div>
+  <div class="heart-area">
+    <div class="heart" id="heart"></div>
+    <div class="empty-note" id="emptyNote">Chọn một bức ảnh để gửi lời chúc yêu thương ♡</div>
+  </div>
+</section>
+<aside class="panel">
+  <h2>Chỉnh sửa thiệp</h2>
+  <p class="hint">Thay nội dung, tải ảnh thầy cô lên và bấm lưu. Dữ liệu lưu trong trình duyệt trên thiết bị này.</p>
+  <div class="field"><label for="titleInput">Tiêu đề chính</label><input id="titleInput" value="Tri ân người lái đò"></div>
+  <div class="field"><label for="messageInput">Lời chúc chung</label><textarea id="messageInput">Cảm ơn thầy cô đã tận tâm dìu dắt, truyền cảm hứng và chắp cánh cho những ước mơ. Kính chúc thầy cô luôn mạnh khỏe, hạnh phúc và giữ mãi ngọn lửa yêu nghề!</textarea></div>
+  <div class="field"><label for="dateInput">Dòng ngày tháng</label><input id="dateInput" value="20 · 11 · 2026"></div>
+  <div class="split">
+    <div class="field"><label for="pinkInput">Màu hồng</label><input id="pinkInput" type="color" value="#f5b9cf"></div>
+    <div class="field"><label for="deepInput">Màu nhấn</label><input id="deepInput" type="color" value="#a74470"></div>
+  </div>
+  <div class="field"><label for="teacherSelect">Thầy/cô đang chỉnh sửa</label><select id="teacherSelect"></select></div>
+  <div class="field"><label for="nameInput">Tên hiển thị</label><input id="nameInput" placeholder="VD: Cô Nguyễn Thị Lan"></div>
+  <div class="field"><label for="photoInput">Ảnh chân dung</label><input id="photoInput" type="file" accept="image/*"><small class="hint">Ảnh vuông hoặc dọc thường hiển thị đẹp nhất.</small></div>
+  <div class="field"><label for="wishInput">Lời chúc riêng</label><textarea id="wishInput" placeholder="Viết lời chúc dành riêng cho thầy/cô..."></textarea></div>
+  <div class="panel-actions">
+    <button id="addBtn">+ Thêm thầy/cô</button>
+    <button class="secondary" id="applyBtn">Cập nhật</button>
+  </div>
+  <div class="panel-actions" style="margin-top:8px">
+    <button class="danger" id="deleteBtn">Xóa thầy/cô</button>
+    <button class="secondary" id="resetBtn">Khôi phục mẫu</button>
+  </div>
+  <div class="status" id="status"></div>
+  <div class="footer-note">Mẹo: nhấn vào ảnh trên trái tim để xem lời chúc riêng.</div>
+</aside>
+</main>
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Thiệp lời chúc">
+  <div class="card">
+    <button class="secondary close" id="closeModal">Đóng ✕</button>
+    <div class="sparkle">✦ ♡ ✦</div>
+    <img id="modalPhoto" alt="Ảnh thầy cô">
+    <h2 id="modalName">Kính gửi thầy/cô</h2>
+    <p id="modalWish"></p>
+    <div class="sparkle">Với tất cả lòng biết ơn ♡</div>
+  </div>
+</div>
+<script>
+const defaults = [
+ {name:"Thầy/cô 1",wish:"Kính chúc thầy/cô ngày 20/11 thật nhiều niềm vui, sức khỏe và hạnh phúc. Cảm ơn thầy/cô vì những bài học quý giá và sự tận tâm dành cho chúng em.",photo:"",x:50,y:18,r:0},
+ {name:"Thầy/cô 2",wish:"Chúc thầy/cô luôn giữ nụ cười trên môi, luôn nhiệt huyết với nghề và gặt hái thật nhiều thành công trong hành trình trồng người.",photo:"",x:31,y:25,r:-7},
+ {name:"Thầy/cô 3",wish:"Em xin gửi đến thầy/cô lời tri ân chân thành nhất. Kính chúc thầy/cô luôn mạnh khỏe, bình an và gặp nhiều điều tốt đẹp.",photo:"",x:69,y:25,r:7},
+ {name:"Thầy/cô 4",wish:"Cảm ơn thầy/cô đã kiên nhẫn chỉ bảo và luôn động viên chúng em. Chúc thầy/cô một ngày Nhà giáo Việt Nam ấm áp, ý nghĩa.",photo:"",x:20,y:43,r:-8},
+ {name:"Thầy/cô 5",wish:"Kính chúc thầy/cô luôn vui vẻ, hạnh phúc và tiếp tục truyền cảm hứng cho thật nhiều thế hệ học trò.",photo:"",x:80,y:43,r:8},
+ {name:"Thầy/cô 6",wish:"Nhân ngày 20/11, em kính chúc thầy/cô dồi dào sức khỏe, luôn yêu nghề và có thật nhiều kỷ niệm đẹp bên học trò.",photo:"",x:27,y:63,r:6},
+ {name:"Thầy/cô 7",wish:"Biết ơn thầy/cô vì đã trao cho chúng em kiến thức, niềm tin và những điều tốt đẹp. Chúc thầy/cô thật nhiều niềm vui!",photo:"",x:73,y:63,r:-6},
+ {name:"Thầy/cô 8",wish:"Chúc thầy/cô có một ngày 20/11 tràn ngập hoa, lời chúc và yêu thương. Mãi biết ơn những điều thầy/cô đã dành cho chúng em.",photo:"",x:39,y:78,r:-4},
+ {name:"Thầy/cô 9",wish:"Kính chúc thầy/cô luôn bình an, hạnh phúc và thành công. Những bài học của thầy/cô sẽ luôn là hành trang quý báu với chúng em.",photo:"",x:61,y:78,r:4}
+];
+let teachers = structuredClone(defaults), selected = 0;
+const $ = id => document.getElementById(id);
+function setStatus(s){$("status").textContent=s}
+function initials(name){return (name||"♡").replace(/Thầy\/cô/gi,"").trim().split(/\s+/).slice(-2).map(s=>s[0]||"").join("").toUpperCase()||"♡"}
+function render(){
+ $("viewTitle").textContent=$("titleInput").value||"Tri ân người lái đò";
+ $("viewMessage").textContent=$("messageInput").value;
+ $("viewDate").textContent=$("dateInput").value;
+ document.documentElement.style.setProperty("--pink",$("pinkInput").value);
+ document.documentElement.style.setProperty("--deep",$("deepInput").value);
+ $("heart").innerHTML="";
+ $("emptyNote").style.display=teachers.length?"block":"none";
+ teachers.forEach((t,i)=>{
+  const b=document.createElement("button");b.className="teacher";b.style.left=t.x+"%";b.style.top=t.y+"%";b.style.setProperty("--rot",(t.r||0)+"deg");b.setAttribute("aria-label","Mở thiệp "+t.name);
+  if(t.photo){const im=document.createElement("img");im.src=t.photo;im.alt=t.name;b.appendChild(im)}
+  else {const ph=document.createElement("div");ph.className="placeholder";ph.innerHTML="<b>♡</b><span>"+escapeHtml(t.name)+"</span>";b.appendChild(ph)}
+  const n=document.createElement("span");n.className="name";n.textContent=t.name;b.appendChild(n);b.onclick=()=>openCard(i);$("heart").appendChild(b);
+ });
+ const sel=$("teacherSelect");sel.innerHTML="";
+ teachers.forEach((t,i)=>{const o=document.createElement("option");o.value=i;o.textContent=t.name||"Thầy/cô "+(i+1);sel.appendChild(o)});
+ if(teachers.length){selected=Math.min(selected,teachers.length-1);sel.value=selected;loadTeacherFields()}
+ else {selected=0;$("nameInput").value="";$("wishInput").value=""}
+}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function loadTeacherFields(){const t=teachers[selected];if(!t)return;$("nameInput").value=t.name;$("wishInput").value=t.wish;$("photoInput").value=""}
+function applyTeacher(){if(!teachers[selected])return;teachers[selected].name=$("nameInput").value.trim()||"Thầy/cô";teachers[selected].wish=$("wishInput").value.trim();render();$("teacherSelect").value=selected;setStatus("Đã cập nhật nội dung. Nhớ bấm “Lưu thay đổi” để lưu lại.")}
+function openCard(i){const t=teachers[i];if(!t)return;$("modalName").textContent=t.name;$("modalWish").textContent=t.wish||"Kính chúc thầy/cô một ngày 20/11 thật vui vẻ và ý nghĩa!";$("modalPhoto").src=t.photo||"";$("modalPhoto").style.display=t.photo?"inline-block":"none";$("modal").classList.add("show")}
+function closeCard(){$("modal").classList.remove("show")}
+function save(){try{localStorage.setItem("thiep2011-state",JSON.stringify({title:$("titleInput").value,message:$("messageInput").value,date:$("dateInput").value,pink:$("pinkInput").value,deep:$("deepInput").value,teachers}));setStatus("Đã lưu trên trình duyệt này ✓")}catch(e){setStatus("Không đủ dung lượng lưu ảnh. Hãy dùng ảnh nhỏ hơn hoặc xuất bản sao.");}}
+function restore(){try{const d=JSON.parse(localStorage.getItem("thiep2011-state"));if(d){$("titleInput").value=d.title??$("titleInput").value;$("messageInput").value=d.message??$("messageInput").value;$("dateInput").value=d.date??$("dateInput").value;$("pinkInput").value=d.pink??"#f5b9cf";$("deepInput").value=d.deep??"#a74470";teachers=d.teachers||structuredClone(defaults)}}catch(e){}render()}
+$("teacherSelect").onchange=e=>{selected=Number(e.target.value);loadTeacherFields()};
+$("applyBtn").onclick=applyTeacher;
+$("addBtn").onclick=()=>{if(teachers.length>=30){setStatus("Bản mẫu hỗ trợ tối đa 30 ảnh để giao diện vẫn dễ nhìn.");return}teachers.push({name:"Thầy/cô mới",wish:"Kính chúc thầy/cô ngày 20/11 nhiều niềm vui, sức khỏe và hạnh phúc!",photo:"",x:50,y:50,r:0});selected=teachers.length-1;render();$("teacherSelect").value=selected;loadTeacherFields();setStatus("Đã thêm mục mới. Nhập tên, lời chúc và chọn ảnh.")};
+$("deleteBtn").onclick=()=>{if(!teachers.length)return;if(!confirm("Xóa thầy/cô đang chọn?"))return;teachers.splice(selected,1);selected=Math.max(0,selected-1);render();setStatus("Đã xóa mục. Bấm Lưu thay đổi để lưu.")};
+$("photoInput").onchange=e=>{const file=e.target.files[0];if(!file)return;if(!file.type.startsWith("image/")){setStatus("Vui lòng chọn tệp ảnh.");return}if(file.size>5*1024*1024){setStatus("Ảnh lớn hơn 5 MB. Hãy chọn ảnh nhỏ hơn để lưu ổn định.");return}const reader=new FileReader();reader.onload=()=>{if(teachers[selected]){teachers[selected].photo=reader.result;render();$("teacherSelect").value=selected;setStatus("Đã tải ảnh lên. Bấm Lưu thay đổi để lưu.")}};reader.readAsDataURL(file)};
+["titleInput","messageInput","dateInput","pinkInput","deepInput"].forEach(id=>$(id).addEventListener("input",render));
+$("saveBtn").onclick=save;$("previewBtn").onclick=()=>openCard(selected);
+$("closeModal").onclick=closeCard;$("modal").onclick=e=>{if(e.target===$("modal"))closeCard()};document.addEventListener("keydown",e=>{if(e.key==="Escape")closeCard()});
+$("resetBtn").onclick=()=>{if(!confirm("Khôi phục mẫu ban đầu? Thay đổi chưa lưu sẽ bị mất."))return;localStorage.removeItem("thiep2011-state");teachers=structuredClone(defaults);selected=0;$("titleInput").value="Tri ân người lái đò";$("messageInput").value="Cảm ơn thầy cô đã tận tâm dìu dắt, truyền cảm hứng và chắp cánh cho những ước mơ. Kính chúc thầy cô luôn mạnh khỏe, hạnh phúc và giữ mãi ngọn lửa yêu nghề!";$("dateInput").value="20 · 11 · 2026";$("pinkInput").value="#f5b9cf";$("deepInput").value="#a74470";render();setStatus("Đã khôi phục mẫu ban đầu.")};
+$("exportBtn").onclick=()=>{const data={title:$("titleInput").value,message:$("messageInput").value,date:$("dateInput").value,pink:$("pinkInput").value,deep:$("deepInput").value,teachers};const blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="thiep-20-11-du-lieu.json";a.click();URL.revokeObjectURL(a.href);setStatus("Đã xuất tệp dữ liệu JSON.")};
+restore();
+</script>
+</body>
+</html>
